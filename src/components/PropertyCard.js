@@ -299,17 +299,15 @@ function PropertyCard({ property }) {
   const handleShareClick = (property) => {
     // Create the share message
     const shareText = `
-      ${
-        property?.type === "Residential Rent" ||
+      ${property?.type === "Residential Rent" ||
         property?.type === "Residential Sell"
-          ? `Bedroom: ${property?.bhk || "NA"}`
-          : ""
+        ? `Bedroom: ${property?.bhk || "NA"}`
+        : ""
       }
-      ${
-        property?.type === "Residential Rent" ||
+      ${property?.type === "Residential Rent" ||
         property?.type === "Commercial Rent"
-          ? `Rent: ${property?.rent || "NA"}`
-          : `Price: ${property?.rent || "NA"}`
+        ? `Rent: ${property?.rent || "NA"}`
+        : `Price: ${property?.rent || "NA"}`
       }
       Furnished Type: ${property?.furnishedType || "NA"}
       Square Ft: ${property?.squareFt || "NA"} SqFt
@@ -409,12 +407,12 @@ function PropertyCard({ property }) {
           </p> */}
           <p className="text-[#503691] bg-[#EFE9FF] font-bold px-4 py-2 rounded-full border border-indigo-600 text-nowrap overflow-hidden text-ellipsis">
             {property?.type === "Residential Rent" ||
-            property?.type === "Commercial Rent"
+              property?.type === "Commercial Rent"
               ? `Rent: ${property?.rent || "NA"}`
               : property?.type === "Residential Sell" ||
                 property?.type === "Commercial Sell"
-              ? `Sell: ${property?.rent || "NA"}`
-              : "Type Not Available"}
+                ? `Sell: ${property?.rent || "NA"}`
+                : "Type Not Available"}
           </p>
 
           {/* Dropdown */}
@@ -425,7 +423,7 @@ function PropertyCard({ property }) {
               propertyType={property?.type}
             />
             <div
-              className="flex flex-row items-center gap-2 h-fit w-20 hover:bg-white bg-[#503691] border border-blue-800 text-white hover:text-blue-800 px-3 py-1.5 rounded-lg cursor-pointer"
+              className="flex flex-row items-center gap-1 h-fit w-20 hover:bg-white bg-[#503691] border border-blue-800 text-white hover:text-blue-800 px-3 py-1.5 rounded-lg cursor-pointer"
               onClick={() => handleShareClick(property)}
             >
               <FaShareAlt className="h-4 w-4" />
@@ -448,11 +446,10 @@ function PropertyCard({ property }) {
               {isSaved ? "Unsave" : "Save"}
             </div> */}
             <div
-              className={`flex flex-row items-center gap-2 h-fit ${
-                isSaved
+              className={`flex flex-row items-center gap-2 h-fit ${isSaved
                   ? "bg-white text-[#503691]"
                   : "bg-white text-[#503691] hover:bg-[#503691] hover:text-white"
-              } border border-[#503691] px-3 py-1.5 rounded-lg cursor-pointer`}
+                } border border-[#503691] px-3 py-1.5 rounded-lg cursor-pointer`}
               onClick={handleSaveClick}
             >
               {isSaved ? (
@@ -476,15 +473,15 @@ function PropertyCard({ property }) {
             <p className="text-[#503691] bg-[#EFE9FF] font-bold px-1.5 py-1 rounded-full border text-sm border-blue-700 text-nowrap overflow-hidden text-ellipsis">
               {/* Rent: {property?.rent || "NA"} */}
               {property?.type === "Residential Rent" ||
-              property?.type === "Commercial Rent"
+                property?.type === "Commercial Rent"
                 ? `Rent: ${property?.rent || "NA"}`
                 : property?.type === "Residential Sell" ||
                   property?.type === "Commercial Sell"
-                ? `Sell: ${property?.rent || "NA"}`
-                : "Type Not Available"}
+                  ? `Sell: ${property?.rent || "NA"}`
+                  : "Type Not Available"}
             </p>
           </div>
-          <div className="flex flex-row justify-between gap-2">
+          <div className="flex  flex-row justify-between gap-2">
             <div className="bg-gray-100 rounded-full p-2 text-sm text-red-500 font-bold w-fit">
               {/* #{generateRandom6DigitNumber()} */}
               {formatDate(property?.listedDate) || "NA"}
@@ -501,9 +498,10 @@ function PropertyCard({ property }) {
       </div>
 
       {/* Main content area */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 text-sm lg:text-md gap-4 p-2 lg:p-4 divide-x lg:divide-solid divide-none lg:divide-black">
+      <div className="grid grid-rows-1 lg:grid-rows-2 text-sm lg:text-md gap-4 p-2 lg:p-4 divide-x lg:divide-solid divide-none lg:divide-black">
         {/* First grid of items */}
-        <div className="grid grid-cols-1 gap-2">
+        <div className="flex justify-between gap-2">
+          {/* type */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex flex-row items-center">
               <svg
@@ -574,23 +572,7 @@ function PropertyCard({ property }) {
             <p className="text-end">{property?.type || "NA"}</p>
           </div>
           <hr className="block"></hr>
-          {/* <div className="flex items-center justify-between gap-4">
-            <div className="flex flex-row items-center">
-              <LuUserSquare2 className="text-[#503691] mr-2 h-6 w-6" />
-              <p>Name</p>
-            </div>
-            <p className="text-end">{property?.name || "NA"}</p>
-          </div>
-          <hr className="block"></hr> */}
-          {/* <div className="flex items-center justify-between gap-4">
-            <div className="flex flex-row items-center">
-              <MdOutlineCalendarMonth className="text-[#f1d35c] mr-2 h-6 w-6" />
-              <p>Date</p>
-            </div>
-            <p className="text-end">
-              {formatDate(property?.createdOn) || "NA"}
-            </p>
-          </div> */}
+          {/* subtype */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex flex-row items-center">
               <svg
@@ -873,7 +855,7 @@ function PropertyCard({ property }) {
             <p className="text-end">{property?.unitType || "NA"}</p>
           </div>
           <hr className="block"></hr>
-
+          {/*  Area  */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex flex-row items-center">
               {/* <FaMapMarked className="text-[red] mr-2 h-6 w-6" /> */}
@@ -895,7 +877,7 @@ function PropertyCard({ property }) {
             <p className="text-end">{property?.area || "NA"}</p>
           </div>
           <hr className="block"></hr>
-
+          {/* BHK */}
           {property?.type !== "Commercial Rent" &&
             property?.type !== "Commercial Sell" && (
               <div>
@@ -909,7 +891,7 @@ function PropertyCard({ property }) {
                 <hr className="block"></hr>
               </div>
             )}
-
+          {/* furnishedType */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex flex-row items-center">
               <TbLamp className="text-[#5f8de9] mr-2 h-6 w-6" />
@@ -918,36 +900,20 @@ function PropertyCard({ property }) {
             <p className="text-end">{property?.furnishedType || "NA"}</p>
           </div>
         </div>
+        <hr className="block"></hr>
 
-        {/* Second grid of items (conditionally rendered) */}
-        {(showMore || !isMobile) && (
-          <div className="grid grid-cols-1 gap-2 pl-0 lg:pl-4">
-            <hr className="lg:hidden block"></hr>
-            {/* <div className="flex items-center justify-between gap-4">
-              <div className="flex flex-row items-center">
-                <FaBed className="text-[#f1d35c] mr-2 h-6 w-6" />
-                <p>Size</p>
-              </div>
-              <p className="text-end">{property?.bhk || "NA"}</p>
-            </div> */}
-
-            <div className="flex items-center justify-between gap-4">
+        {/* Second Div */}
+        <div className="flex gap-4">
+        {/* address */}
+        <div className="flex items-center justify-between gap-4">
               <div className="flex flex-row items-center">
                 <GoHome className="text-[#247d00] mr-2 h-6 w-6" />
                 <p>Address</p>
               </div>
               <p className="text-end">{property?.address || "NA"}</p>
             </div>
-            <hr className="block"></hr>
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex flex-row items-center">
-                <RxDimensions className="text-[#f1d35c] mr-2 h-6 w-6" />
-                <p>Sqft</p>
-              </div>
-              <p className="text-end">{property?.squareFt || "NA"} sqft</p>
-            </div>
-            <hr className="block"></hr>
-
+           
+{/* discription */}
             <div className="flex items-center justify-between gap-4">
               <div className="flex flex-row items-center">
                 <IoDocumentTextOutline className="text-[#247d00] mr-2 h-6 w-6" />
@@ -966,7 +932,33 @@ function PropertyCard({ property }) {
               </p>
             </div>
 
+           
+            </div>
             <hr className="block"></hr>
+
+{/* Thried main div  */}
+
+        {/* Second grid of items (conditionally rendered) */}
+        {(showMore || !isMobile) && (
+          <div className="grid grid-cols-1 gap-2 pl-0 lg:pl-4">
+            <hr className="lg:hidden block"></hr>
+            {/* <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-row items-center">
+                <FaBed className="text-[#f1d35c] mr-2 h-6 w-6" />
+                <p>Size</p>
+              </div>
+              <p className="text-end">{property?.bhk || "NA"}</p>
+            </div> */}
+ {/* squ */}
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-row items-center">
+                <RxDimensions className="text-[#f1d35c] mr-2 h-6 w-6" />
+                <p>Sqft</p>
+              </div>
+              <p className="text-end">{property?.squareFt || "NA"} sqft</p>
+            </div>
+            <hr className="block"></hr>
+ {/* Content */}
             {/* if we remove this it will remove extra line from mobile but remove one line from laptop view so remove from here but need to add something in mobile view */}
             {/* <div className="flex items-center justify-between gap-4">
               <div className="flex flex-row items-center">
@@ -1001,21 +993,19 @@ function PropertyCard({ property }) {
                   <div className="flex items-center gap-3">
                     {/* Phone Link */}
                     <a
-                      href={`tel:${
-                        contactInfo.number?.startsWith("+91")
+                      href={`tel:${contactInfo.number?.startsWith("+91")
                           ? contactInfo.number.replace("+91", "").trim()
                           : contactInfo.number || ""
-                      }`}
+                        }`}
                       className="text-[#503691] hover:underline flex items-center"
                     ></a>
 
                     {/* WhatsApp Link */}
                     <a
-                      href={`https://wa.me/${
-                        contactInfo.number?.startsWith("+91")
+                      href={`https://wa.me/${contactInfo.number?.startsWith("+91")
                           ? contactInfo.number.replace("+91", "").trim()
                           : contactInfo.number || ""
-                      }`}
+                        }`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:scale-110 transition-transform"
@@ -1033,7 +1023,7 @@ function PropertyCard({ property }) {
                 </div>
               )}
             </div>
-            {/* Remark Section */}
+{/* Remark Section */}
             {contactInfo && (
               <div>
                 {" "}
@@ -1077,8 +1067,10 @@ function PropertyCard({ property }) {
               </div>
             )}
           </div>
+      
         )}
       </div>
+
 
       {/* Show More/Less Button */}
       <div className="flex lg:hidden justify-start cursor-pointer text-md mb-2">
@@ -1089,8 +1081,8 @@ function PropertyCard({ property }) {
           {isMobile && showMore ? "Show Less" : "Show More..."}
         </p>
       </div>
-
-      <div className="flex flex-col lg:flex-row lg:hidden justify-between gap-2">
+      {/* share btn */}
+      {/* <div className="flex flex-col lg:flex-row lg:hidden justify-between gap-2">
         <div className="grid grid-cols-2 gap-2">
           <div
             className="flex flex-row items-center gap-2 h-fit hover:bg-white bg-[#503691] border border-[#503691] text-white hover:text-[#503691] px-6 py-1.5 rounded-lg cursor-pointer"
@@ -1115,8 +1107,8 @@ function PropertyCard({ property }) {
             {isSaved ? "Unsave" : "Save"}
           </div>
         </div>
-      </div>
-
+      </div> */}
+      {/* contact info */}
       <div className="flex lg:hidden items-center justify-between mt-3 gap-4">
         {contactInfo ? (
           <div className="w-full px-2 py-2 rounded-lg mb-2 bg-white border border-[#503691] text-[#503691] flex justify-between items-center">
@@ -1129,11 +1121,10 @@ function PropertyCard({ property }) {
             <div className="flex items-center gap-4">
               {/* Phone Number */}
               <a
-                href={`tel:${
-                  contactInfo.number?.startsWith("+91")
+                href={`tel:${contactInfo.number?.startsWith("+91")
                     ? contactInfo.number.replace("+91", "").trim()
                     : contactInfo.number || ""
-                }`}
+                  }`}
                 className="text-[#503691] hover:underline flex items-center gap-1"
               >
                 <MdOutlinePhone className="text-[#503691] h-5 w-5" />
@@ -1144,11 +1135,10 @@ function PropertyCard({ property }) {
 
               {/* WhatsApp Icon */}
               <a
-                href={`https://wa.me/${
-                  contactInfo.number?.startsWith("+91")
+                href={`https://wa.me/${contactInfo.number?.startsWith("+91")
                     ? contactInfo.number.replace("+91", "").trim()
                     : contactInfo.number || ""
-                }`}
+                  }`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#25D366] hover:text-green-600"

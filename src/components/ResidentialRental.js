@@ -560,51 +560,61 @@ const ResidentialRental = () => {
       {isPageChanging && <Loader />}
 
       <div className="property-list-container">
-        <div className="flex items-center my-8 mx-4 md:mx-8">
-          <div className="md:w-1/2 bg-white w-9/12 rounded-lg flex items-center">
+        <div className="flex items-center my-3 mx-4 md:mx-8">
+        <div className="">
+            <div className="flex items-center  relative right-[45px] my-8 mx-4 md:mx-8">
+              <DatePicker
+                selected={selectedListedOn}
+                onChange={handleDateChange}
+                className="form-control h-12 p-2 rounded-lg w-full shadow-md "
+                placeholderText="Select listed date"
+                isClearable={true} // Allows clearing the date selection
+                clearButtonTitle="Clear date"
+                maxDate={new Date()} // Restrict selection to today or earlier
+              />
+              {/* Additional UI elements remain the same */}
+            </div>
+
+          </div>
+          <div className="md:w-1/3 bg-white w-9/12 rounded-lg flex items-center">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="p-2 rounded-lg w-full"
-              placeholder={"search area/premise name"}
+              className="p-3 rounded-lg   w-full placeholder:text-gray-400 shadow-md "
+              placeholder={"Premise Name"}
             />
             <button
               onClick={() => fetchProperties(0)}
-              className="relative z-10 bg-gradient-to-r from-[#2DA1FE] to-[#AD43FE] text-white py-2 px-4 rounded w-fit"
+              className="absolute left-[680px] shadow-lg z-10 bg-gradient-to-r  bg-[#503691]  text-white py-[8px] px-4 rounded-r-lg rounded-s-xl w-fit"
             >
               Search
             </button>
           </div>
-          <div className="ml-2">
+
+          {/* Enter Date Fillter */}
+         
+
+          <div className="ml-[400px]">
             <button
-              className="bg-blue-800 text-white py-1.5 px-4 rounded-full"
+              className="bg-[#503691] text-white py-3 flex items-center gap-2 px-6 rounded-xl"
               onClick={handleClick}
             >
-              Filter
+              
+              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"  xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4L15 12V21L9 18V15.5M9 12L4 4H16" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              All Filter
             </button>
           </div>
         </div>
-        <div className="">
-          <div className="flex items-center my-8 mx-4 md:mx-8">
-            <DatePicker
-              selected={selectedListedOn}
-              onChange={handleDateChange}
-              className="form-control p-2 rounded-lg w-full date-picker-highlight"
-              placeholderText="Select listed date"
-              isClearable={true} // Allows clearing the date selection
-              clearButtonTitle="Clear date"
-              maxDate={new Date()} // Restrict selection to today or earlier
-            />
-            {/* Additional UI elements remain the same */}
-          </div>
-          <div>
-            {" "}
-            <p className="ml-4 text-gray-700 text-center">
-              {totalItems > 0 && `${totalItems} Properties found`}
-            </p>
-          </div>
+        <div>
+          {" "}
+          <p className="ml-4 text-gray-700 text-center">
+            {totalItems > 0 && `${totalItems} Properties found`}
+          </p>
         </div>
+
         {isLoading && properties.length === 0 ? (
           <Loader />
         ) : properties.length === 0 ? (
@@ -631,9 +641,8 @@ const ResidentialRental = () => {
             Page {currentPage + 1} of {totalPages}
           </span>
           <button
-            className={`pagination-btn ${
-              currentPage === totalPages - 1 ? "disabled" : ""
-            }`}
+            className={`pagination-btn ${currentPage === totalPages - 1 ? "disabled" : ""
+              }`}
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages - 1}
           >
