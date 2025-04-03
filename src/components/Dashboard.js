@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import SearchInput from "./SearchInput";
 import FeaturedOn from "./FeaturedOn";
 import axios from "axios";
+import { gsap } from "gsap";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -38,13 +39,40 @@ const Dashboard = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const buttons = document.querySelectorAll(".dashboard-property-summary, .property-summary1");
+
+    buttons.forEach((button) => {
+      button.addEventListener("mouseenter", () => {
+        gsap.to(button, { scale: 1.1, duration: 0.3 });
+      });
+
+      button.addEventListener("mouseleave", () => {
+        gsap.to(button, { scale: 1, duration: 0.3 });
+      });
+    });
+
+    // Cleanup function to remove event listeners
+    return () => {
+      buttons.forEach((button) => {
+        button.removeEventListener("mouseenter", () => {
+          gsap.to(button, { scale: 1.1, duration: 0.3 });
+        });
+
+        button.removeEventListener("mouseleave", () => {
+          gsap.to(button, { scale: 1, duration: 0.3 });
+        });
+      });
+    };
+  }, []);
+
   return (
     <div className="dashboard-container" style={{ background: "#FAF7FF" }}>
       <div className="dashboard-heading">
         <h1>The ultimate property solution for brokers</h1>
         <p>
-          #1 B2C platform for brokers in <br />
-          Ahmedabad & Gandhinagar
+          #1 B2B platform for brokers to get direct  <br />
+          owners properties in Ahmedabad 
         </p>
       </div>
       <SearchInput placeholder="Search Property..." buttonText="Search" />
@@ -107,7 +135,7 @@ const Dashboard = () => {
       </div> */}
       <div className="active-properties-section">
         {" "}
-        <p className="dashobard-title">Active Properties</p>
+        <p className="dashobard-title ">Active Properties </p>
       </div>
       <div className="active-property">
         <div
@@ -187,10 +215,14 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="video-section">
+
+
+      <p className="video-section-title">How to use Probroker</p>
+      <div className="video-section ">
+        
+        <div className="video-section2">
         <iframe
-          width="560"
-          height="315"
+         
           src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
           title="YouTube video player"
           frameborder="0"
@@ -198,6 +230,31 @@ const Dashboard = () => {
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
+        </div>
+        <div className="video-section2">
+        <iframe
+        
+      
+          src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        </div>
+        <div className="video-section2">
+        <iframe
+        
+        
+          src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        </div>
       </div>
       <FeaturedOn />
       {/* <SuggestionButton /> */}

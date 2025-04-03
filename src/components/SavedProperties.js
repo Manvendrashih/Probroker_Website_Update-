@@ -14,6 +14,7 @@ const SavedProperties = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
   const navigate = useNavigate();
+
   const isPremium = Cookies.get("isPremium");
 
   const [modal, setModal] = useState({

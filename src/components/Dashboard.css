@@ -29,17 +29,33 @@
   }
 }
 
+.video-section-title {
+  font-family: Roboto;
+  font-size: 25px;
+  margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: left;
+    color: #000000;
+}
 .video-section {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   height: 100%; /* Set a height or leave as auto depending on your design needs */
   margin-top: 20px;
+  gap: 9%;
+}
+.video-section2 {
+  width: 460px;
 }
 
 .video-section iframe {
-  width: 560px; /* Width of the iframe */
-  height: 315px; /* Height of the iframe */
+   /* Width of the iframe */
+  border-radius: 20px;
+  height: 215px; /* Height of the iframe */
+  width: 400px;
 }
 
 /* Add responsive styling for smaller screens */
@@ -305,7 +321,9 @@
 }
 .dashobard-title {
   font-family: Roboto;
-  font-size: 20px;
+  font-size: 25px;
+  margin-top: 30px;
+  margin-bottom: 15px;
   font-weight: bold;
   line-height: 20px;
   text-align: left;
@@ -328,14 +346,14 @@
 }
 .dashboard-heading h1 {
   font-family: Arial;
-  font-size: 45px;
+  font-size: 41px;
   font-weight: 700;
   line-height: 100.05px;
   color: #503691;
 }
 .dashboard-heading p {
   font-family: Arial;
-  font-size: 37.29px;
+  font-size: 33.29px;
   font-weight: 400;
   line-height: 61.02px;
   color: #878787;

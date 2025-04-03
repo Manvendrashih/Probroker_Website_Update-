@@ -1,5 +1,5 @@
 // src/components/Navbar.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./Navbar.css";
@@ -7,6 +7,7 @@ import image from "../image/probrocker-logo.png";
 import HelpButton from "./HelpButton"; // Adjust the path accordingly
 import { Button } from "bootstrap";
 import SuggestionModal from "./SuggestionModal";
+import { gsap } from "gsap";
 
 const Navbar = () => {
   const isLoggedIn = Cookies.get("userId");
@@ -29,6 +30,31 @@ const Navbar = () => {
     window.location.href = "/"; // Redirect to the home page
     window.location.reload(); // Reload the page to apply the logout state
   };
+
+  useEffect(() => {
+    const buttons = document.querySelectorAll(
+      ".navbar-menu .hover\\:bg-\\[\\#f0f0f0\\], .dropdown button, .dropdown-menu a"
+    );
+
+    buttons.forEach((button) => {
+      const handleMouseEnter = () => {
+        gsap.to(button, { scale: 1.1, duration: 0.3 });
+      };
+
+      const handleMouseLeave = () => {
+        gsap.to(button, { scale: 1, duration: 0.3 });
+      };
+
+      button.addEventListener("mouseenter", handleMouseEnter);
+      button.addEventListener("mouseleave", handleMouseLeave);
+
+      // Cleanup function to remove event listeners
+      return () => {
+        button.removeEventListener("mouseenter", handleMouseEnter);
+        button.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    });
+  }, []);
 
   return (
     <nav className="navbar z-20">

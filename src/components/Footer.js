@@ -18,8 +18,8 @@ const Footer = () => {
             className="footer-logo"
           />
           <p className="tagline">
-            #1 B2C platform for brokers in <br />
-            Ahmedabad & Gandhinagar{" "}
+            #1 B2B platform for brokers in <br />
+            Ahmedabad {" "}
           </p>
           <div className="social-icons">
             <a href="#">
@@ -38,21 +38,21 @@ const Footer = () => {
         </div>
 
         <div className="footer-middle">
-          <h3>Contact</h3>
+         <h3 className=" w-[28%] ">Contact</h3>
           <div className="icon-set">
             <FontAwesomeIcon className="icons" icon={faMapMarkerAlt} />
             <p className="middle-text">
-              A-10, KCG campus, university area opp ld college, Navrangpura
+              A-10, KCG campus, university area opp Ld college, Navrangpura
               380009
             </p>
           </div>
           <div className="icon-set">
             <FontAwesomeIcon className="icons1" icon={faPhoneAlt} />
-            <p className="middle-text">9316066832</p>
+            <p className="middle-text">+91-8141817353</p>
           </div>
           <div className="icon-set">
-            <FontAwesomeIcon className="icons1" icon={faClock} />
-            <p className="middle-text"> Working Hours: 12pm To 7pm</p>
+            <FontAwesomeIcon className="icons2" icon={faClock} />
+            <p className="middle-text"> Working Hours: 10pm To 7pm</p>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="footer-wave">
-          <p>© 2024 All rights reserved - Vocal Connect Pvt Ltd.</p>
+          <p>© 2025 All rights reserved - Vocal Connect Pvt Ltd.</p>
           <img src="./image/Frame 28.png" alt="Footer Image" />
         </div>
       </div>
