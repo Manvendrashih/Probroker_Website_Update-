@@ -72,7 +72,7 @@ const Dashboard = () => {
         <h1>The ultimate property solution for brokers</h1>
         <p>
           #1 B2B platform for brokers to get direct  <br />
-          owners properties in Ahmedabad 
+          owners properties in Ahmedabad
         </p>
       </div>
       <SearchInput placeholder="Search Property..." buttonText="Search" />
@@ -218,43 +218,71 @@ const Dashboard = () => {
 
 
       <p className="video-section-title">How to use Probroker</p>
-      <div className="video-section ">
-        
-        <div className="video-section2">
-        <iframe
-         
-          src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
+      <div className="video-section  ">
+
+        <div className="video-section2 shadow-2xl">
+          <iframe
+
+            src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <h1 className=" text-black font-bold text-lg pl-7 pt-5">Getting Started with Probroker</h1>
+          <p className=" text-black  text-sm pl-7  mb-4 pt-2">Learn the basic of using PRObroker to find  properties</p>
+          <a href="https://www.youtube.com/watch?v=VbFJcpt-ejI" className="text-[#5f3dc4] pl-7  font-bold">Watch Now
+
+            <svg className="relative left-28  bottom-[35px]  " xmlns="http://www.w3.org/2000/svg" width="28" height="50" viewBox="0 0 100 50" fill="#5f3dc4" >
+              <line x1="22" y1="25" x2="90" y2="25" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" />
+              <polyline points="80,10 95,25 80,40" fill="none" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
         </div>
-        <div className="video-section2">
-        <iframe
-        
-      
-          src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
+        <div className="video-section2 shadow-2xl">
+          <iframe
+
+
+            src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <h1 className=" text-black font-bold text-lg pl-7 pt-5">Getting Started with Probroker</h1>
+          <p className=" text-black  text-sm pl-7  mb-4 pt-2">Learn the basic of using PRObroker to find  properties</p>
+          <a href="https://www.youtube.com/watch?v=VbFJcpt-ejI" className="text-[#5f3dc4] pl-7  font-bold">Watch Now
+
+            <svg className="relative left-28  bottom-[35px]  " xmlns="http://www.w3.org/2000/svg" width="28" height="50" viewBox="0 0 100 50" fill="#5f3dc4" >
+              <line x1="22" y1="25" x2="90" y2="25" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" />
+              <polyline points="80,10 95,25 80,40" fill="none" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
         </div>
-        <div className="video-section2">
-        <iframe
-        
-        
-          src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-        </div>
+        <div className="video-section2 shadow-2xl">
+          <iframe
+
+
+            src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <h1 className=" text-black font-bold text-lg pl-7 pt-5">Getting Started with Probroker</h1>
+          <p className=" text-black  text-sm pl-7  mb-4 pt-2">Learn the basic of using PRObroker to find  properties</p>
+          <a href="https://www.youtube.com/watch?v=VbFJcpt-ejI" className="text-[#5f3dc4] pl-7  font-bold">Watch Now
+
+            <svg className="relative left-28  bottom-[35px]  " xmlns="http://www.w3.org/2000/svg" width="28" height="50" viewBox="0 0 100 50" fill="#5f3dc4" >
+              <line x1="22" y1="25" x2="90" y2="25" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" />
+              <polyline points="80,10 95,25 80,40" fill="none" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>        </div>
+
+
       </div>
       <FeaturedOn />
       {/* <SuggestionButton /> */}

@@ -101,6 +101,7 @@ const App = () => {
         <Route path="/disclaimer" element={<Disclaimer />} />{" "}
         <Route path="/about-us" element={<AboutUs />} /> {/* Public Route */}
         <Route path="/contact-us" element={<ContactUs />} />{" "}
+        
         {/* Public Route */}
         <Route
           path="/filter"

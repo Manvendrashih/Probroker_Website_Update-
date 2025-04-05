@@ -18,6 +18,8 @@
   margin: 20px auto; /* Center horizontally */
 }
 
+
+
 @media only screen and (min-width: 1024px){
   .dashboard-container {
     width: 900px; /* Smaller width for this range */
@@ -41,6 +43,7 @@
 }
 .video-section {
   display: flex;
+  
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   height: 100%; /* Set a height or leave as auto depending on your design needs */
@@ -49,11 +52,15 @@
 }
 .video-section2 {
   width: 460px;
+  border-radius: 20px;
+  height: 345px;
+  background-color: white;
 }
 
 .video-section iframe {
    /* Width of the iframe */
-  border-radius: 20px;
+  border-radius:20px 20px  0  0 ;
+  
   height: 215px; /* Height of the iframe */
   width: 400px;
 }
