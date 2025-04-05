@@ -220,7 +220,7 @@ const Dashboard = () => {
       <p className="video-section-title">How to use Probroker</p>
       <div className="video-section  ">
 
-        <div className="video-section2 shadow-2xl">
+        <div className="video-section2 shadow-xl">
           <iframe
 
             src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
@@ -240,7 +240,7 @@ const Dashboard = () => {
             </svg>
           </a>
         </div>
-        <div className="video-section2 shadow-2xl">
+        <div className="video-section2 shadow-xl">
           <iframe
 
 
@@ -261,7 +261,7 @@ const Dashboard = () => {
             </svg>
           </a>
         </div>
-        <div className="video-section2 shadow-2xl">
+        <div className="video-section2 shadow-xl">
           <iframe
 
 

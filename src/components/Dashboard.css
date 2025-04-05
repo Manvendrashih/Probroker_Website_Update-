@@ -52,14 +52,14 @@
 }
 .video-section2 {
   width: 460px;
-  border-radius: 20px;
+  border-radius: 10px;
   height: 345px;
   background-color: white;
 }
 
 .video-section iframe {
    /* Width of the iframe */
-  border-radius:20px 20px  0  0 ;
+  border-radius:10px 10px  0  0 ;
   
   height: 215px; /* Height of the iframe */
   width: 400px;
