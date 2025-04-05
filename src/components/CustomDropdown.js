@@ -53,7 +53,7 @@ const Dropdown = ({ propertyType, status, onChange }) => {
     <div className="relative inline-block text-left">
       <button
         type="button"
-        className={`border border-gray-300  text-white rounded-lg px-2 lg:py-2 py-1 w-full ${getStatusClassName(
+        className={`border border-gray-300  text-white rounded-lg px-2 lg:py-1 py-1 w-full ${getStatusClassName(
           status
         )}`}
         onClick={() => setIsOpen(!isOpen)}

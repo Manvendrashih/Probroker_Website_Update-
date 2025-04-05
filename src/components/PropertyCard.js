@@ -382,7 +382,7 @@ function PropertyCard({ property }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-1 lg:p-4 lg:mx-0">
+    <div className="bg-white rounded-lg shadow-md p-1 lg:p-3 lg:mx-0">
       {/* Uncomment if you need the availability banner */}
       {/* <div className="flex flex-row items-center justify-end px-4 py-2">
         <div className="bg-yellow-300 rounded-lg p-1.5 text-white font-bold">
@@ -391,13 +391,13 @@ function PropertyCard({ property }) {
       </div> */}
 
       {/* Desktop mode */}
-      <div className="grid-cols-1 lg:grid-cols-2 lg:grid hidden gap-2 items-center justify-between pt-4 px-1 xl:px-4 lg:px-2">
+      <div className="grid-cols-1 lg:grid-cols-2 lg:grid hidden gap-2 items-center justify-between pt-1 px-1 xl:px-4 lg:px-2">
         <div className="flex flex-col lg:flex-row justify-between gap-2">
-          <div className="rounded-full p-1 text-red-500 font-bold px-3 w-fit border border-red-500">
+          <div className="rounded-full p-1 text-red-500 text-[14px] font-bold  px-3 w-fit border border-red-500">
             {/* #{generateRandom6DigitNumber()} */}
             {formatDate(property?.listedDate) || "NA"}
           </div>
-          <p className="text-[#503691] bg-[#EFE9FF] font-bold  px-3 py-1 rounded-full border border-indigo-600">
+          <p className="text-[#503691] bg-[#EFE9FF]  text-[14px] font-bold px-3 py-1 rounded-full border border-indigo-600">
             Premise - {property?.title || "NA"}
           </p>
         </div>
@@ -405,7 +405,7 @@ function PropertyCard({ property }) {
           {/* <p className="text-[#503691] bg-[#EFE9FF] font-bold px-4 py-2 rounded-full border border-indigo-600  text-nowrap overflow-hidden text-ellipsis">
             Rent: {property?.rent || "NA"}
           </p> */}
-          <p className="text-[#503691] bg-[#EFE9FF] font-bold px-3 py-2 rounded-full border border-indigo-600 text-nowrap overflow-hidden text-ellipsis">
+          <p className="text-[#503691] bg-[#EFE9FF] text-[14px] font-bold px-3 py-1 rounded-full border border-indigo-600 text-nowrap overflow-hidden text-ellipsis">
             {property?.type === "Residential Rent" ||
             property?.type === "Commercial Rent"
               ? `Rent: ${property?.rent || "NA"}`
@@ -416,14 +416,14 @@ function PropertyCard({ property }) {
           </p>
 
           {/* Dropdown */}
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-row gap-2 ">
             <Dropdown
               status={status}
               onChange={handleStatusChange}
               propertyType={property?.type}
             />
             <div
-              className="flex flex-row items-center gap-2 h-fit w-20 hover:bg-white bg-[#503691] border border-blue-800 text-white hover:text-blue-800 px-3 py-1.5 rounded-lg cursor-pointer"
+              className="flex flex-row items-center gap-2 h-fit w-20 hover:bg-white bg-[#503691] border border-blue-800 text-white hover:text-blue-800 px-3 py-1 rounded-lg cursor-pointer"
               onClick={() => handleShareClick(property)}
             >
               <FaShareAlt className="h-4 w-4" />
@@ -434,7 +434,7 @@ function PropertyCard({ property }) {
                 isSaved
                   ? "bg-white text-[#503691]"
                   : "bg-white text-[#503691] hover:bg-[#503691] hover:text-white"
-              } border border-[#503691] px-3 py-1.5 rounded-lg cursor-pointer w-20`}
+              } border border-[#503691] px-3 py-1 rounded-lg cursor-pointer w-20`}
               onClick={handleSaveClick}
               disabled={loading}
             >
@@ -450,7 +450,7 @@ function PropertyCard({ property }) {
                 isSaved
                   ? "bg-white text-[#503691]"
                   : "bg-white text-[#503691] hover:bg-[#503691] hover:text-white"
-              } border border-[#503691] px-3 py-1.5 rounded-lg cursor-pointer`}
+              } border border-[#503691] px-3 py-1 rounded-lg cursor-pointer`}
               onClick={handleSaveClick}
             >
               {isSaved ? (
@@ -483,7 +483,7 @@ function PropertyCard({ property }) {
             </p>
           </div>
           <div className="flex flex-row justify-between gap-2">
-            <div className="bg-gray-100 rounded-full p-2 text-sm text-red-500 font-bold w-fit">
+            <div className="bg-gray-100 rounded-full p-1 text-sm text-red-500 font-bold w-fit">
               {/* #{generateRandom6DigitNumber()} */}
               {formatDate(property?.listedDate) || "NA"}
             </div>
@@ -500,8 +500,12 @@ function PropertyCard({ property }) {
 
       {/* Main content area */}
       <div className="grid grid-cols-1 lg:grid-cols-2 text-sm lg:text-md gap-4 p-2 lg:p-4 divide-x lg:divide-solid divide-none lg:divide-black">
-        {/* First grid of items */}
-        <div className="grid grid-cols-1 gap-2">
+  {/* First grid of items */}
+        <div className="grid grid-cols-1 gap-2 pt-2">
+
+  {/* Type */}
+
+<div className="flex justify-between">
           <div className="flex items-center justify-between gap-4">
             <div className="flex flex-row items-center">
               <svg
@@ -567,28 +571,12 @@ function PropertyCard({ property }) {
               </svg>
 
               {/* <MdOutlineCalendarMonth className="text-[#f1d35c] mr-2 h-6 w-6" /> */}
-              <p>Type</p>
+              <p>Type :</p>
             </div>
             <p className="text-end">{property?.type || "NA"}</p>
           </div>
           <hr className="block"></hr>
-          {/* <div className="flex items-center justify-between gap-4">
-            <div className="flex flex-row items-center">
-              <LuUserSquare2 className="text-[#503691] mr-2 h-6 w-6" />
-              <p>Name</p>
-            </div>
-            <p className="text-end">{property?.name || "NA"}</p>
-          </div>
-          <hr className="block"></hr> */}
-          {/* <div className="flex items-center justify-between gap-4">
-            <div className="flex flex-row items-center">
-              <MdOutlineCalendarMonth className="text-[#f1d35c] mr-2 h-6 w-6" />
-              <p>Date</p>
-            </div>
-            <p className="text-end">
-              {formatDate(property?.createdOn) || "NA"}
-            </p>
-          </div> */}
+  {/* Subtype */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex flex-row items-center">
               <svg
@@ -872,39 +860,34 @@ function PropertyCard({ property }) {
           </div>
           <hr className="block"></hr>
 
-         
-          <div className="flex items-center justify-between gap-4">
-              <div className="flex flex-row items-center">
-                <GoHome className="text-[#247d00] mr-2 h-6 w-6" />
-                <p>Address</p>
-              </div>
-              <p className="text-end">{property?.address || "NA"}</p>
-            </div>
-            <hr className="block"></hr>
+ {/* size */}
           {property?.type !== "Commercial Rent" &&
             property?.type !== "Commercial Sell" && (
-              <div>
+              
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex flex-row items-center">
                     <FaBed className="text-[#f1d35c] mr-2 h-6 w-6" />
                     <p>Size</p>
                   </div>
                   <p className="text-end">{property?.bhk || "NA"}</p>
-                </div>
-                <hr className="block"></hr>
-              </div>
+                </div>   
             )}
-
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex flex-row items-center">
-              <TbLamp className="text-[#5f8de9] mr-2 h-6 w-6" />
-              <p>Condition</p>
-            </div>
-            <p className="text-end">{property?.furnishedType || "NA"}</p>
           </div>
+          <hr className="block"></hr>
+{/* Address */}
+         
+          <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-row items-center">
+                <GoHome className="text-[#247d00] mr-2 h-6 w-6" />
+                <p>Address :</p>
+              </div>
+              <p className="text-end">{property?.address || "NA"}</p>
+            </div>
+            <hr className="block"></hr>
+       
         </div>
 
-        {/* Second grid of items (conditionally rendered) */}
+  {/* Second grid of items (conditionally rendered) */}
         {(showMore || !isMobile) && (
           <div className="grid grid-cols-1 gap-2 pl-0 lg:pl-4">
             <hr className="lg:hidden block"></hr>
@@ -917,6 +900,8 @@ function PropertyCard({ property }) {
             </div> */}
 
 <div className="flex items-center justify-between gap-4">
+<div className="flex justify-around">
+  {/* Area */}
             <div className="flex flex-row items-center">
               {/* <FaMapMarked className="text-[red] mr-2 h-6 w-6" /> */}
               <svg
@@ -931,26 +916,36 @@ function PropertyCard({ property }) {
                   fill="#1D1B20"
                 />
               </svg>
-
-              <p>Area</p>
+              <div className="flex justify-evenly gap-3">
+              <p>Area :</p>
+            <p className="">{property?.area || "NA"}</p>
             </div>
-            <p className="text-end">{property?.area || "NA"}</p>
+            </div>
           </div>
           <hr className="block"></hr>
-
+{/* Sque */}
             <div className="flex items-center justify-between gap-4">
               <div className="flex flex-row items-center">
                 <RxDimensions className="text-[#f1d35c] mr-2 h-6 w-6" />
-                <p>Sqft</p>
+                <p>Sqft :</p>
               </div>
               <p className="text-end">{property?.squareFt || "NA"} sqft</p>
             </div>
+{/* conition */}
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-row items-center">
+              <TbLamp className="text-[#5f8de9] mr-2 h-6 w-6" />
+              <p>Condition :</p>
+            </div>
+            <p className="text-end">{property?.furnishedType || "NA"}</p>
+          </div>
+            </div>
+{/* Discription */}
             <hr className="block"></hr>
-
             <div className="flex items-center justify-between gap-4">
               <div className="flex flex-row items-center">
                 <IoDocumentTextOutline className="text-[#247d00] mr-2 h-6 w-6" />
-                <p>Description</p>
+                <p>Description :</p>
               </div>
               <p className="text-end">
                 {showDescMore ? property?.description : truncatedDescription}{" "}
@@ -975,8 +970,63 @@ function PropertyCard({ property }) {
               <p className="text-end">{property?.userType || "NA"}</p>
             </div>
             <hr className="block"></hr> */}
-            <div className="lg:flex hidden items-center justify-between gap-4">
-              <div className="flex flex-row items-center">
+
+
+ 
+          </div>
+        )}
+      </div>
+
+{/* Forth grid of items (conditionally rendered) */}
+<div className="flex justify-between w-full">
+{/* Remark Section */}
+{contactInfo && (
+              <div>
+                {" "}
+                
+                <div className="lg:flex hidden items-center justify-between gap-4 ml-4 ">
+                  <div className="flex flex-row items-center">
+                    <MdNoteAlt className="text-[#503691] mr-2 h-6 w-6" />
+                    <p>Remark</p>
+                  </div>
+                  <div className="flex items-center justify-between  py-1 rounded-lg bg-white text-[#503691]">
+                    {isEditing ? (
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          value={remark}
+                          onChange={(e) => setRemark(e.target.value)}
+                          className="border p-2 rounded w-full"
+                        />
+                        <AiOutlineCheck
+                          className="text-green-500 cursor-pointer"
+                          onClick={handleSaveRemark}
+                        />
+                        <AiOutlineClose
+                          className="text-red-500 cursor-pointer"
+                          onClick={handleCancelEdit}
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-between gap-2">
+                        <p>{remark || "Add a remark"}</p>
+                        <button
+                          className="text-blue-500 hover:underline"
+                          onClick={() => setIsEditing(true)}
+                        >
+                          Edit
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+  {/* Contact */}
+  <div className="flex justify-end w-1/2">
+  <div className="lg:flex hidden items-center justify-between  gap-4">
+              <div className="flex flex-row items-center ">
                 <MdOutlinePhone className="text-[#503691] mr-2 h-6 w-6" />
                 <p>Contact</p>
               </div>
@@ -1032,54 +1082,10 @@ function PropertyCard({ property }) {
                 </div>
               )}
             </div>
-            {/* Remark Section */}
-            {contactInfo && (
-              <div>
-                {" "}
-                <hr className="block"></hr>
-                <div className="lg:flex hidden items-center justify-between gap-4 mt-4">
-                  <div className="flex flex-row items-center">
-                    <MdNoteAlt className="text-[#503691] mr-2 h-6 w-6" />
-                    <p>Remark</p>
-                  </div>
-                  <div className="flex items-center justify-between py-2 rounded-lg bg-white text-[#503691]">
-                    {isEditing ? (
-                      <div className="flex items-center gap-2">
-                        <input
-                          type="text"
-                          value={remark}
-                          onChange={(e) => setRemark(e.target.value)}
-                          className="border p-2 rounded w-full"
-                        />
-                        <AiOutlineCheck
-                          className="text-green-500 cursor-pointer"
-                          onClick={handleSaveRemark}
-                        />
-                        <AiOutlineClose
-                          className="text-red-500 cursor-pointer"
-                          onClick={handleCancelEdit}
-                        />
-                      </div>
-                    ) : (
-                      <div className="flex items-center justify-between gap-2">
-                        <p>{remark || "Add a remark"}</p>
-                        <button
-                          className="text-blue-500 hover:underline"
-                          onClick={() => setIsEditing(true)}
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+</div>
+</div>
 
-      {/* Show More/Less Button */}
+{/* Show More/Less Button */}
       <div className="flex lg:hidden justify-start cursor-pointer text-md mb-2">
         <p
           onClick={() => setShowMore(!showMore)}
@@ -1115,7 +1121,7 @@ function PropertyCard({ property }) {
           </div>
         </div>
       </div>
-
+{/* contact */}
       <div className="flex lg:hidden items-center justify-between mt-3 gap-4">
         {contactInfo ? (
           <div className="w-full px-2 py-2 rounded-lg mb-2 bg-white border border-[#503691] text-[#503691] flex justify-between items-center">
