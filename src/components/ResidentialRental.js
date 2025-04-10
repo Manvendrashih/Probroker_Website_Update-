@@ -9,7 +9,7 @@ import Loader from "./Loader"; // Import a loader component
 import PropertyCard from "./PropertyCard";
 import "react-datepicker/dist/react-datepicker.css"; // Importing DatePicker styles
 import { debounce } from "lodash"; // Make sure lodash is installed or implement your own debounce function
-import List from "./List.js";
+import List from "./List"; // Ensure this import is present
 
 
 
@@ -171,7 +171,7 @@ const ResidentialRental = () => {
               ))}
             </select>
 
-                
+
 
             {/* Search Box */}
             <div className="relative  w-[600px]">
@@ -204,55 +204,54 @@ const ResidentialRental = () => {
           <div className="flex items-center gap-2">
             <span className="text-sm text-slate-600">View:</span>
             <div className="flex bg-white border-2 gap-2 w-[110px] border-blue-100 rounded-full p-1">
-                <button
-                  className={`h-10 w-10 flex items-center justify-center rounded-full transition-all ${!isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
-                  onClick={() => setIsListView(false)}
+              <button
+                className={`h-10 w-10 flex items-center justify-center rounded-full transition-all ${!isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
+                onClick={() => setIsListView(false)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-layout-grid h-4 w-4">
+                  <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                  <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                  <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                  <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+                </svg>
+              </button>
+
+
+              <button
+                className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
+                onClick={() => setIsListView(true)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-list h-4 w-4"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-layout-grid h-4 w-4">
-                    <rect width="7" height="7" x="3" y="3" rx="1"></rect>
-                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
-                    <rect width="7" height="7" x="14" y="14" rx="1"></rect>
-                    <rect width="7" height="7" x="3" y="14" rx="1"></rect>
-                  </svg>
-                </button>
-              
-              
-                <button
-                  className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
-                  onClick={() => setIsListView(true)}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-list h-4 w-4"
-                  >
-                    <line x1="8" x2="21" y1="6" y2="6" />
-                    <line x1="8" x2="21" y1="12" y2="12" />
-                    <line x1="8" x2="21" y1="18" y2="18" />
-                    <line x1="3" x2="3.01" y1="6" y2="6" />
-                    <line x1="3" x2="3.01" y1="12" y2="12" />
-                    <line x1="3" x2="3.01" y1="18" y2="18" />
-                  </svg>
-                </button>
-                
+                  <line x1="8" x2="21" y1="6" y2="6" />
+                  <line x1="8" x2="21" y1="12" y2="12" />
+                  <line x1="8" x2="21" y1="18" y2="18" />
+                  <line x1="3" x2="3.01" y1="6" y2="6" />
+                  <line x1="3" x2="3.01" y1="12" y2="12" />
+                  <line x1="3" x2="3.01" y1="18" y2="18" />
+                </svg>
+              </button>
+
             </div>
           </div>
 
         </div>
-        
+
         {/* Total Properties */}
         <p className="text-gray-700 text-center">
           {totalItems > 0 && `${totalItems} Properties found`}
         </p>
         <div>
-          {/* Pass properties to List component */}
           {isListView ? (
             <List properties={properties} />
           ) : (

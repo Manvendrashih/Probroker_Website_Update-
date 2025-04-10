@@ -28,13 +28,35 @@ import './List.css'; // Import the CSS file for styling
 function List({ properties }) {  // Accept properties as a prop
   return (
     <div className="properties-list">
-      {properties.length > 0 ? (
-        properties.map((property) => (
-          <PropertyCard key={property.id} property={property} />
-        ))
-      ) : (
-        <div>No properties found</div>
-      )}
+      <table>
+        <thead>
+          <tr className="header-row">
+            <th>Title</th>
+            <th>Price</th>
+            <th>Location</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {properties.length > 0 ? ( //Change na karto
+            properties.map((property) => ( //Change na karto
+            
+              <tr key={property.id} className="property-row">   {/* //Change na karto */}
+                <td>{property.title}</td>
+                <td>${property.bhk}</td>
+                <td>{property.furnishedType}</td>
+                <td>
+                  <button>View Details</button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4">No properties found</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }
