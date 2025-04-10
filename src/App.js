@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
@@ -20,6 +20,10 @@ import TermsAndCondition from "./components/TermsAndCondition";
 import Disclaimer from "./components/Disclaimer";
 import AboutUs from "./components/About-us";
 import ContactUs from "./components/ContactUs";
+import List from "./components/List";
+
+
+
 
 const App = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -76,7 +80,7 @@ const App = () => {
   const handleClosePopup = () => {
     setShowPopup(false);
   };
- 
+
 
   return (
     <Router>
@@ -101,7 +105,10 @@ const App = () => {
         <Route path="/disclaimer" element={<Disclaimer />} />{" "}
         <Route path="/about-us" element={<AboutUs />} /> {/* Public Route */}
         <Route path="/contact-us" element={<ContactUs />} />{" "}
-        
+        <Route path="/list" element={<List />} />
+       
+      
+
         {/* Public Route */}
         <Route
           path="/filter"
@@ -123,9 +130,18 @@ const App = () => {
           path="/payment-success"
           element={<ProtectedRoute element={PaymentStatusPage} />}
         />
+        <Route
+          path="/list"
+          element={<ProtectedRoute element={List} />}
+        />
+       
+        
+       
+       
         {/* Add more routes as needed */}
       </Routes>
       <Footer />
+      
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup-container">
@@ -145,7 +161,7 @@ const App = () => {
                 className="popup-dismiss-btn"
                 onClick={handleDismissPopup}
               >
-                Don’t Show Again
+                Don't Show Again
               </button>
             </div>
           </div>

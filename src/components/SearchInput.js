@@ -56,7 +56,7 @@ const SearchInput = () => {
       <input
 
         type="text"
-        className="search-input font-semibold bg-[#503691]   text-center rounded-3xl   h-[50px]  placeholder:text-white"
+        className="search-input font-semibold bg-[#503691]  cursor-pointer  text-center rounded-3xl   h-[50px]  placeholder:text-white"
         placeholder="Start Your Property Search  "
         readOnly // Prevents typing, making it clear that it's a clickable field
       />

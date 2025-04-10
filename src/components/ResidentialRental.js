@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import DatePicker from "react-datepicker";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./ResidentialRental.css";
 import Cookies from "js-cookie"; // Import js-cookie if not already imported
@@ -9,6 +9,9 @@ import Loader from "./Loader"; // Import a loader component
 import PropertyCard from "./PropertyCard";
 import "react-datepicker/dist/react-datepicker.css"; // Importing DatePicker styles
 import { debounce } from "lodash"; // Make sure lodash is installed or implement your own debounce function
+import List from "./List.jsx";
+
+
 
 const ResidentialRental = () => {
   const [properties, setProperties] = useState([]);
@@ -35,6 +38,8 @@ const ResidentialRental = () => {
     title: "",
     content: null,
   });
+
+  const [isListView, setIsListView] = useState(false);
 
   // Fetch property types from the server or define them here
   useEffect(() => {
@@ -135,29 +140,13 @@ const ResidentialRental = () => {
   return (
     <div className="property-list mx-0 md:mx-8 pagination-container relative">
       {isPageChanging && <Loader />}
+      {/* Date Picker */}
+
 
       <div className="property-list-container">
+
         <div className="flex items-center justify-start flex-wrap gap-[15px] my-4 mx-8">
-          {/* Property Type Dropdown */}
-          <select
-            value={type}
-            onChange={(e) => setType(e.target.value)}
-            className="p-2 rounded-lg"
-          >
-            {propertyTypes.map((propertyType) => (
-              <option key={propertyType} value={propertyType}>
-                {propertyType}
-              </option>
-            ))}
-          </select>
-
-          {/* Total Properties */}
-          <p className="text-gray-700 whitespace-nowrap">
-            {totalItems > 0 && `${totalItems} Properties found`}
-          </p>
-
-          {/* Date Picker */}
-          <div className="relative">
+          <div className="">
             <DatePicker
               selected={selectedListedOn}
               onChange={handleDateChange}
@@ -168,22 +157,38 @@ const ResidentialRental = () => {
               maxDate={new Date()}
             />
           </div>
-
-          {/* Search Box */}
-          <div className="relative w-[600px]">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="p-3 pr-20 rounded-lg w-full placeholder:text-gray-400 shadow-md"
-              placeholder="Premise Name"
-            />
-            <button
-              onClick={() => fetchProperties(0)}
-              className="absolute right-1 top-1 bottom-1 bg-[#503691] text-white px-4 rounded-md shadow-lg"
+          {/* Property Type Dropdown */}
+          <div className=" dropdown-search-box flex rounded-lg ">
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+              className=" rounded-s-lg p-2 h-12  shadow-md "
             >
-              Search
-            </button>
+              {propertyTypes.map((propertyType) => (
+                <option key={propertyType} value={propertyType}>
+                  {propertyType}
+                </option>
+              ))}
+            </select>
+
+                
+
+            {/* Search Box */}
+            <div className="relative  w-[600px]">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="p-3 pr-40 rounded-e-lg w-full placeholder:text-gray-400 shadow-md"
+                placeholder="Premise Name"
+              />
+              <button
+                onClick={() => fetchProperties(0)}
+                className="absolute right-1 rounded-lg top-1 bottom-1 bg-[#503691] text-white px-4  "
+              >
+                Search
+              </button>
+            </div>
           </div>
 
           {/* All Filter Button */}
@@ -196,21 +201,75 @@ const ResidentialRental = () => {
             </svg>
             All Filter
           </button>
-        </div>
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-slate-600">View:</span>
+            <div className="flex bg-white border-2 gap-2 w-[110px] border-blue-100 rounded-full p-1">
+                <button
+                  className={`h-10 w-10 flex items-center justify-center rounded-full transition-all ${!isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
+                  onClick={() => setIsListView(false)}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-layout-grid h-4 w-4">
+                    <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                    <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+                    <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+                  </svg>
+                </button>
+              
+              
+                <button
+                  className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
+                  onClick={() => setIsListView(true)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-list h-4 w-4"
+                  >
+                    <line x1="8" x2="21" y1="6" y2="6" />
+                    <line x1="8" x2="21" y1="12" y2="12" />
+                    <line x1="8" x2="21" y1="18" y2="18" />
+                    <line x1="3" x2="3.01" y1="6" y2="6" />
+                    <line x1="3" x2="3.01" y1="12" y2="12" />
+                    <line x1="3" x2="3.01" y1="18" y2="18" />
+                  </svg>
+                </button>
+                
+            </div>
+          </div>
 
+        </div>
+        
+        {/* Total Properties */}
+        <p className="text-gray-700 text-center">
+          {totalItems > 0 && `${totalItems} Properties found`}
+        </p>
+        <div>
+          {/* This is List Component */}
+          {isListView ? (
+            <List />
+          ) : (
+            <div className="properties-grid">
+              {properties.map((property) => (
+                <div key={property.id} className="gap-4 mt-2 md:m-4">
+                  <PropertyCard property={property} />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
         {isLoading && properties.length === 0 ? (
           <Loader />
         ) : properties.length === 0 ? (
           <div className="no-properties">No properties found</div>
-        ) : (
-          <div className="properties-grid">
-            {properties.map((property) => (
-              <div key={property.id} className="gap-4 mt-2 md:m-4">
-                <PropertyCard property={property} />
-              </div>
-            ))}
-          </div>
-        )}
+        ) : null}
 
         <div className="pagination">
           <button

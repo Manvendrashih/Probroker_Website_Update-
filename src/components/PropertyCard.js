@@ -236,65 +236,7 @@ function PropertyCard({ property }) {
     return `${day}/${month}/${year}`;
   }
 
-  // const handleShareClick = async (property) => {
-  //   try {
-  //     if (navigator.share) {
-  //       await navigator.share({
-  //         text: `
-  //         ${brokerNumber}
-  //         ${brokerName}
-  //         ${property?.bhk}
-  //         ${property?.furnishedType}
-  //         ${property?.squareFt}
-  //         ${property?.area}
-  //         ${property?.unitType}`,
-  //       });
-  //     } else {
-  //       // Fallback for browsers that don't support the Web Share API
-  //       console.log("Web Share API is not supported.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error sharing:", error);
-  //   }
-  // };
-
-  // const handleShareClick = async (property) => {
-  //   try {
-  //     if (navigator.share) {
-  //       // Prepare the text content to share
-  //       let shareText = `
-  //         ${
-  //           property?.type === "Residential Rent" ||
-  //           property?.type === "Residential Sell"
-  //             ? `Bedroom: ${property?.bhk || "NA"}`
-  //             : ""
-  //         }
-  //         Furnished Type: ${property?.furnishedType || "NA"}
-  //         Square Ft: ${property?.squareFt || "NA"} SqFt
-  //         Address: ${property?.area || "NA"}, ${property?.city || "NA"}
-  //         Type: ${property?.unitType || "NA"}
-  //         Name: ${brokerName || "NA"}
-  //         Number: ${brokerNumber || "NA"}
-  //       `.trim();
-
-  //       // Ensure single newlines between each section
-  //       shareText = shareText.replace(/\n\s*\n/g, "\n").replace(/\n+/g, "\n");
-
-  //       // Remove leading/trailing whitespace
-  //       shareText = shareText.trim();
-
-  //       // Sharing the formatted text
-  //       await navigator.share({
-  //         text: shareText,
-  //       });
-  //     } else {
-  //       // Fallback for browsers that don't support the Web Share API
-  //       console.log("Web Share API is not supported.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error sharing:", error);
-  //   }
-  // };
+  
 
   const handleShareClick = (property) => {
     // Create the share message

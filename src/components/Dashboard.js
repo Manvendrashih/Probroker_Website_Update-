@@ -137,7 +137,7 @@ const Dashboard = () => {
         {" "}
         <p className="dashobard-title ">Active Properties </p>
       </div>
-      <div className="active-property">
+      <div className="active-property cursor-pointer">
         <div
           className="property-summary1"
           onClick={() => handlePropertyClick("", "active", "Owner")}
@@ -220,7 +220,7 @@ const Dashboard = () => {
       <p className="video-section-title">How to use Probroker</p>
       <div className="video-section  ">
 
-        <div className="video-section2 shadow-xl">
+        <div className="video-section2 shadow-md">
           <iframe
 
             src="https://www.youtube.com/embed/VbFJcpt-ejI?si=iZ39GNRdSdAXeqHF"
@@ -240,7 +240,7 @@ const Dashboard = () => {
             </svg>
           </a>
         </div>
-        <div className="video-section2 shadow-xl">
+        <div className="video-section2 shadow-md">
           <iframe
 
 
@@ -261,7 +261,7 @@ const Dashboard = () => {
             </svg>
           </a>
         </div>
-        <div className="video-section2 shadow-xl">
+        <div className="video-section2 shadow-md">
           <iframe
 
 
