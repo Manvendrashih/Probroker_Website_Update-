@@ -9,7 +9,7 @@ import Loader from "./Loader"; // Import a loader component
 import PropertyCard from "./PropertyCard";
 import "react-datepicker/dist/react-datepicker.css"; // Importing DatePicker styles
 import { debounce } from "lodash"; // Make sure lodash is installed or implement your own debounce function
-import List from "./List.jsx";
+import List from "./List.js";
 
 
 

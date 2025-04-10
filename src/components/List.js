@@ -61,7 +61,8 @@ function List({ property }) {
           body: JSON.stringify(payload),
         }
       );
-
+      console.log("This is First Api" , response)
+   
       // Parse the response
       if (!response.ok) {
         const errorData = await response.json();
@@ -106,6 +107,7 @@ function List({ property }) {
       },
       data: data,
     };
+    console.log("This is Second Api" ,config)
 
     try {
       const response = await axios.request(config);
@@ -153,7 +155,7 @@ function List({ property }) {
       },
       data: data,
     };
-
+    console.log("This is Thired Api" , config)
     try {
       const response = await axios.request(config);
       if (!response.data.success) {
@@ -209,8 +211,8 @@ function List({ property }) {
 
   // Function to truncate text to 20 words
   const truncateText = (text, wordLimit) => {
-    const words = text.split(" ");
-    if (words.length > wordLimit) {
+    const words = text?.split(" ");
+    if (words?.length > wordLimit) {
       return words.slice(0, wordLimit).join(" ") + "...";
     }
     return text;
