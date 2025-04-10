@@ -252,9 +252,9 @@ const ResidentialRental = () => {
           {totalItems > 0 && `${totalItems} Properties found`}
         </p>
         <div>
-          {/* This is List Component */}
+          {/* Pass properties to List component */}
           {isListView ? (
-            <List />
+            <List properties={properties} />
           ) : (
             <div className="properties-grid">
               {properties.map((property) => (
