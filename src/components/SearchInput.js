@@ -57,7 +57,7 @@ const SearchInput = () => {
 
         type="text"
         className="search-input font-semibold bg-[#503691]  cursor-pointer  text-center rounded-3xl   h-[50px]  placeholder:text-white"
-        placeholder="Start Your Property Search  "
+        placeholder=" Search Property   "
         readOnly // Prevents typing, making it clear that it's a clickable field
       />
       <svg className="absolute right-8" xmlns="http://www.w3.org/2000/svg" width="28" height="50" viewBox="0 0 100 50" fill="#ffffff" >

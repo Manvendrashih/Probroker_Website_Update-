@@ -217,7 +217,7 @@ const Dashboard = () => {
       </div>
 
 
-      <p className="video-section-title">How to use Probroker</p>
+      <p className="video-section-title text-center pt-10 font-bold text-[#503691]">How to use PRObroker ?</p>
       <div className="video-section  ">
 
         <div className="video-section2 shadow-md">
@@ -230,15 +230,7 @@ const Dashboard = () => {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
-          <h1 className=" text-black font-bold text-lg pl-7 pt-5">Getting Started with Probroker</h1>
-          <p className=" text-black  text-sm pl-7  mb-4 pt-2">Learn the basic of using PRObroker to find  properties</p>
-          <a href="https://www.youtube.com/watch?v=VbFJcpt-ejI" className="text-[#5f3dc4] pl-7  font-bold">Watch Now
 
-            <svg className="relative left-28  bottom-[35px]  " xmlns="http://www.w3.org/2000/svg" width="28" height="50" viewBox="0 0 100 50" fill="#5f3dc4" >
-              <line x1="22" y1="25" x2="90" y2="25" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" />
-              <polyline points="80,10 95,25 80,40" fill="none" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
         </div>
         <div className="video-section2 shadow-md">
           <iframe
@@ -251,15 +243,7 @@ const Dashboard = () => {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
-          <h1 className=" text-black font-bold text-lg pl-7 pt-5">Getting Started with Probroker</h1>
-          <p className=" text-black  text-sm pl-7  mb-4 pt-2">Learn the basic of using PRObroker to find  properties</p>
-          <a href="https://www.youtube.com/watch?v=VbFJcpt-ejI" className="text-[#5f3dc4] pl-7  font-bold">Watch Now
 
-            <svg className="relative left-28  bottom-[35px]  " xmlns="http://www.w3.org/2000/svg" width="28" height="50" viewBox="0 0 100 50" fill="#5f3dc4" >
-              <line x1="22" y1="25" x2="90" y2="25" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" />
-              <polyline points="80,10 95,25 80,40" fill="none" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
         </div>
         <div className="video-section2 shadow-md">
           <iframe
@@ -272,15 +256,7 @@ const Dashboard = () => {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
-          <h1 className=" text-black font-bold text-lg pl-7 pt-5">Getting Started with Probroker</h1>
-          <p className=" text-black  text-sm pl-7  mb-4 pt-2">Learn the basic of using PRObroker to find  properties</p>
-          <a href="https://www.youtube.com/watch?v=VbFJcpt-ejI" className="text-[#5f3dc4] pl-7  font-bold">Watch Now
-
-            <svg className="relative left-28  bottom-[35px]  " xmlns="http://www.w3.org/2000/svg" width="28" height="50" viewBox="0 0 100 50" fill="#5f3dc4" >
-              <line x1="22" y1="25" x2="90" y2="25" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" />
-              <polyline points="80,10 95,25 80,40" fill="none" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>        </div>
+        </div>
 
 
       </div>

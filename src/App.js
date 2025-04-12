@@ -21,6 +21,7 @@ import Disclaimer from "./components/Disclaimer";
 import AboutUs from "./components/About-us";
 import ContactUs from "./components/ContactUs";
 import List from "./components/List";
+import PropertyListed from "./components/PropertyListed";
 
 
 
@@ -106,7 +107,7 @@ const App = () => {
         <Route path="/about-us" element={<AboutUs />} /> {/* Public Route */}
         <Route path="/contact-us" element={<ContactUs />} />{" "}
         <Route path="/list" element={<List />} />
-       
+        <Route path="/property-listed" element={<PropertyListed />} />
       
 
         {/* Public Route */}

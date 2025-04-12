@@ -72,13 +72,7 @@ const Navbar = () => {
         >
           Home
         </Link>
-        <Link
-          to="/"
-          className="hover:bg-[#f0f0f0] text-black px-3 py-1.5 rounded-lg"
-          onClick={openModal}
-        >
-          Suggestion
-        </Link>
+        
 
         {isLoggedIn ? (
           <>
@@ -130,6 +124,40 @@ const Navbar = () => {
               >
               </Link>
             </div> */}
+
+<Link to="/property-listed">
+          <button
+            class="bg-[#EFE9FF] 
+         hover:from-blue-600 hover:to-indigo-600 
+         text-[#503691]  px-3 py-2.5 rounded-full 
+         transition-all border border-[#503691] duration-200 
+         flex items-center gap-1.5 
+         text-xs font-bold shadow-md shadow-blue-500/10"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-building2 w-3 h-3"
+            >
+              <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+              <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+              <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+              <path d="M10 6h4"></path>
+              <path d="M10 10h4"></path>
+              <path d="M10 14h4"></path>
+              <path d="M10 18h4"></path>
+            </svg>
+            Add Property
+          </button>
+
+        </Link>
 
             <button
               onClick={handleLogout}

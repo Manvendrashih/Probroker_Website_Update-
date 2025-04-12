@@ -27,7 +27,7 @@ import { toast } from "react-toastify";
 function List({ property }) {
   // State to handle show more/less
   const [showMore, setShowMore] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); 
   const [isSaved, setIsSaved] = useState(property?.isSaved);
   const [showDescMore, setShowDescMore] = useState(false);
   const [contactInfo, setContactInfo] = useState(
@@ -400,7 +400,7 @@ function List({ property }) {
                   : "bg-white text-[#503691] hover:bg-[#503691] hover:text-white"
               } border border-[#503691] px-3 py-1.5 rounded-lg cursor-pointer`}
               onClick={handleSaveClick}
-            >
+               >
               {isSaved ? (
                 <FaBookmark className="h-4 w-4" />
               ) : (

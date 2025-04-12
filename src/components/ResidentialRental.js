@@ -11,6 +11,9 @@ import "react-datepicker/dist/react-datepicker.css"; // Importing DatePicker sty
 import { debounce } from "lodash"; // Make sure lodash is installed or implement your own debounce function
 import List from "./List"; // Ensure this import is present
 
+import { Minimize2, Maximize2 } from "lucide-react";
+
+
 
 
 const ResidentialRental = () => {
@@ -25,6 +28,8 @@ const ResidentialRental = () => {
   const [selectedListedOn, setSelectedListedOn] = useState(null); // Date state
   const [searchQuery, setSearchQuery] = useState("");
   const [propertyTypes, setPropertyTypes] = useState([]); // State for property types
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -38,6 +43,17 @@ const ResidentialRental = () => {
     title: "",
     content: null,
   });
+
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
 
   const [isListView, setIsListView] = useState(false);
 
@@ -138,19 +154,19 @@ const ResidentialRental = () => {
   }, [properties]);
 
   return (
-    <div className="property-list mx-0 md:mx-8 pagination-container relative">
+    <div className="property-list mx-0 md:mx-2 pagination-container relative">
       {isPageChanging && <Loader />}
       {/* Date Picker */}
 
 
-      <div className="property-list-container">
+      <div className="property-list-container ">
 
         <div className="flex items-center justify-start flex-wrap gap-[15px] my-4 mx-8">
           <div className="">
             <DatePicker
               selected={selectedListedOn}
               onChange={handleDateChange}
-              className="form-control h-12 p-2 rounded-lg w-[200px] shadow-md"
+              className="form-control h-10 p-2 rounded-lg w-[200px] shadow-md"
               placeholderText="Select listed date"
               isClearable={true}
               clearButtonTitle="Clear date"
@@ -162,7 +178,7 @@ const ResidentialRental = () => {
             <select
               value={type}
               onChange={(e) => setType(e.target.value)}
-              className=" rounded-s-lg p-2 h-12  shadow-md "
+              className=" rounded-s-lg p-2 h-10  shadow-md "
             >
               {propertyTypes.map((propertyType) => (
                 <option key={propertyType} value={propertyType}>
@@ -179,7 +195,7 @@ const ResidentialRental = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="p-3 pr-40 rounded-e-lg w-full placeholder:text-gray-400 shadow-md"
+                className="p-3 pr-40 rounded-e-lg w-full h-10 placeholder:text-gray-400 shadow-md"
                 placeholder="Premise Name"
               />
               <button
@@ -193,7 +209,7 @@ const ResidentialRental = () => {
 
           {/* All Filter Button */}
           <button
-            className="bg-[#503691] text-white py-3 flex items-center gap-2 px-6 rounded-xl"
+            className="bg-[#503691] text-white py-3 h-10 flex items-center gap-2 px-6 rounded-xl"
             onClick={handleClick}
           >
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -202,10 +218,10 @@ const ResidentialRental = () => {
             All Filter
           </button>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-slate-600">View:</span>
-            <div className="flex bg-white border-2 gap-2 w-[110px] border-blue-100 rounded-full p-1">
+            <span className="text-sm text-slate-600"> Change View :</span>
+            <div className="flex bg-white border-2 gap-2 w-[75px] h-10 border-blue-100 rounded-full py-[5px] px-2">
               <button
-                className={`h-10 w-10 flex items-center justify-center rounded-full transition-all ${!isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
+                className={`h-6 w-6 flex items-center justify-center rounded-full transition-all ${!isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
                 onClick={() => setIsListView(false)}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-layout-grid h-4 w-4">
@@ -218,7 +234,7 @@ const ResidentialRental = () => {
 
 
               <button
-                className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
+                className={`flex h-6 w-6 items-center justify-center rounded-full transition-all ${isListView ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-sm' : 'text-blue-600'}`}
                 onClick={() => setIsListView(true)}
               >
                 <svg
@@ -248,9 +264,19 @@ const ResidentialRental = () => {
         </div>
 
         {/* Total Properties */}
-        <p className="text-gray-700 text-center">
+        <p className="text-gray-700 pb-2 text-center">
           {totalItems > 0 && `${totalItems} Properties found`}
         </p>
+        {/* <button
+          onClick={toggleFullscreen}
+          className="p-1.5 hover:bg-slate-100 rounded-lg"
+        >
+          {isFullscreen ? (
+            <Minimize2 className="w-4 h-4 text-slate-600" />
+          ) : (
+            <Maximize2 className="w-4 h-4 text-slate-600" />
+          )}
+        </button> */}
         <div>
           {isListView ? (
             <List properties={properties} />
